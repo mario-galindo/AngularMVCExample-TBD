@@ -1,0 +1,16 @@
+﻿<h3>Productos</h3>
+<div ng-controller="mainController">
+
+    <table class="table table-striped">
+        <tr ng-repeat="productos in products">
+            <td>{{productos.NombreProducto}}</td>
+            <td class="text-right">
+                <button class="btn btn-danger">X</button>
+            </td>
+        </tr>
+    </table>
+
+    <input type="text" required />
+    <a href="#" class="btn btn-primary">Agregar Producto</a>
+</div>
+
