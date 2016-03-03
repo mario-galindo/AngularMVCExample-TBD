@@ -26,6 +26,7 @@ namespace AngularMVC.Controllers
             return Json(products, JsonRequestBehavior.AllowGet);
         }
 
+        /*
         public bool logearse(string user,string pass) {
 
             conexionBaseDatos db = new conexionBaseDatos();
@@ -47,7 +48,7 @@ namespace AngularMVC.Controllers
                 //throw;
             }
         
-        }
+        }*/
 
 
 

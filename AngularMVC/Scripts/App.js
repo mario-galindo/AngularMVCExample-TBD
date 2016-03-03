@@ -14,7 +14,7 @@ myApp.controller('mainController', function ($scope, $http,$location) {
             console.log(data);
         })
 
-
+    /*
     $scope.login = function () {
 
         
@@ -29,6 +29,22 @@ myApp.controller('mainController', function ($scope, $http,$location) {
 
         
         
+    }*/
+
+    $scope.login = function () {
+
+
+        $http.post('/login/logearse', { user: $scope.usuario, pass: $scope.password })
+            .success(function (data) {
+
+                console.log(data);
+            })
+            .error(function (error) {
+                console.log(error);
+            })
+
+
+
     }
 
 });

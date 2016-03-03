@@ -15,7 +15,9 @@ namespace AngularMVC.Controllers
         }
 
         
-        [HttpPost]
+        
+        //Funcion para que recibe el usuario de la base de dato e intenta logearse 
+        //User:sa, Pass:root
         public bool logearse(string user,string pass) {
 
             conexionBaseDatos manejoDB = new conexionBaseDatos();
