@@ -8,6 +8,10 @@ namespace AngularMVC.Controllers
 {
     public class HomeController : Controller
     {
+
+
+
+
         // GET: Home
         public ActionResult Index()
         {
@@ -21,5 +25,31 @@ namespace AngularMVC.Controllers
 
             return Json(products, JsonRequestBehavior.AllowGet);
         }
+
+        public bool logearse(string user,string pass) {
+
+            conexionBaseDatos db = new conexionBaseDatos();
+
+            try
+            {
+                if (user == "sa")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw;
+            }
+        
+        }
+
+
+
     }
 }
