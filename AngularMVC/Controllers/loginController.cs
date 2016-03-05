@@ -12,8 +12,10 @@ namespace AngularMVC.Controllers
         public ActionResult Index()
         {
             return View();
+            
         }
 
+       
         
         
         //Funcion para que recibe el usuario de la base de dato e intenta logearse 

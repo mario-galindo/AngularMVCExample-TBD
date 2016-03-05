@@ -16,6 +16,7 @@ namespace AngularMVC.Controllers
         public ActionResult Index()
         {
             return View();
+            //return PartialView();
         }
 
         public JsonResult GetProducts() {
@@ -26,29 +27,7 @@ namespace AngularMVC.Controllers
             return Json(products, JsonRequestBehavior.AllowGet);
         }
 
-        /*
-        public bool logearse(string user,string pass) {
-
-            conexionBaseDatos db = new conexionBaseDatos();
-
-            try
-            {
-                if (user == "sa")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-                //throw;
-            }
-        
-        }*/
+       
 
 
 

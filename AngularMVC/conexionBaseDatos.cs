@@ -25,9 +25,6 @@ namespace AngularMVC
 
         }
 
-
-
-
         public void EjecutarSQL(String Query)
         {
             SqlCommand MiComando = new SqlCommand(Query, this.MiConexion);
