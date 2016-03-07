@@ -1,0 +1,43 @@
+﻿<div>
+    <h3>Formulario Para Crear Tablas</h3>
+    <div class="col-md-3">
+        <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect" class="form-control">
+            <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <input type="button" class="form-control btn btn-primary" value="Agregar Columna" ng-click="agregarFila()" />
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>PK</td>
+                    <td>Nombre</td>
+                    <td>Tipo</td>
+                    <td>Tamano</td>
+                    <td>Null</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in camposTabla">
+                    <td><input type="checkbox" name="name" value=" " ng-model="row.pk" /></td>
+                    <td><input type="text" class="form-control" value=" " ng-model="row.nombre" /></td>
+                    <td><input type="text" class="form-control" value=" " ng-model="row.tipo" /></td>
+                    <td><input type="text" class="form-control" value=" " ng-model="row.tamano" /></td>
+                    <td><input type="checkbox" name="name" value=" " ng-model="row.nulo" /> </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        
+
+
+
+    </div>
+
+
+</div>

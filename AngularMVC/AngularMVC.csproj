@@ -136,6 +136,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Templates\CrearBaseDato.html" />
+    <Content Include="Templates\crearTabla.html" />
     <Content Include="Templates\Editor.html" />
     <Content Include="Templates\Home.html" />
     <Content Include="Templates\login.html" />
@@ -151,6 +152,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="conexionBaseDatos.cs" />
     <Compile Include="Controllers\CrearBaseDatoController.cs" />
+    <Compile Include="Controllers\crearTablaController.cs" />
     <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
@@ -183,6 +185,7 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Views\Editor\Index.cshtml" />
     <Content Include="Views\CrearBaseDato\Index.cshtml" />
+    <Content Include="Views\crearTabla\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

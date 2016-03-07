@@ -49,7 +49,11 @@ myApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/Templates/CrearBaseDato.html',
             controller: 'mainController'
         })
+        .when('/crearTabla', {
 
+            templateUrl: '/Templates/crearTabla.html',
+            controller: 'mainController'
+        })
         
 
     	.otherwise({
@@ -64,6 +68,41 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
     $scope.usuario;
     $scope.password;
+
+    $scope.data = {
+        repeatSelect: null,
+        availableOptions: [
+          { id: '1', name: 'Master' },
+          { id: '2', name: 'TempDB' },
+          { id: '3', name: 'Model' },
+          { id: '3', name: 'msdb' }
+        ],
+    };
+
+    $scope.camposTabla = [
+        {
+            pk: false,
+            nombre: "",
+            tipo: "varchar",
+            tamano: 20,
+            nulo:true
+        }
+        ]
+
+    $scope.agregarFila = function()
+    {
+        $scope.camposTabla.push({
+            pk: false,
+            nombre: "",
+            tipo: "varchar",
+            tamano: 20,
+            nulo: true
+        });
+
+    }
+
+    
+
 
 
     $http.get('/home/GetProducts')
