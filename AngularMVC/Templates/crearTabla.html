@@ -1,8 +1,10 @@
-﻿<div>
+﻿<div ng-init="getDataBases()">
     <h3>Formulario Para Crear Tablas</h3>
+    <input type="button" name="name" value="cargar DB" ng-click="getDataBases()" />
+
     <div class="col-md-3">
         <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect" class="form-control">
-            <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+            <option ng-repeat="option in data" value="{{option}}">{{option}}</option>
         </select>
     </div>
     <div class="col-md-2">
@@ -33,11 +35,7 @@
         </table>
 
 
-        
-
-
 
     </div>
-
 
 </div>

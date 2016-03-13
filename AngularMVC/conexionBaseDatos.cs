@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Mvc;
+
+
 
 namespace AngularMVC
 {
@@ -13,8 +16,8 @@ namespace AngularMVC
         public string pass;
 
         public SqlConnection MiConexion;
-
-
+        
+        
         public void conectar(string usuario, string password)
         {
             user = usuario;
@@ -32,10 +35,20 @@ namespace AngularMVC
 
         }
 
+       
+
         public void Desconectar()
         {
             MiConexion.Close();
         }
+
+        public SqlDataReader EjecutarSQL2(String Query)
+        {
+            SqlCommand MiComando = new SqlCommand(Query, this.MiConexion);
+            return MiComando.ExecuteReader();
+        }
+
+       
 
 
     }

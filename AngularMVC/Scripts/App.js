@@ -101,19 +101,33 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
     }
 
+    $scope.getDataBases = function () {
+        $http.get('/crearTabla/GetDataBases')
+    .success(function (result) {
+        console.log(result[0]);
+        $scope.data = result;
+        console.log($scope.data);
+
+    })
+    .error(function (data) {
+        console.log(data);
+    })
+    }
+
     
 
-
+    /*
 
     $http.get('/home/GetProducts')
         .success(function (result) {
             $scope.products = result;
+            console.log(result);
         })
         .error(function (data) {
             console.log(data);
         })
 
-   
+   */
 
     $scope.login = function () {
 
