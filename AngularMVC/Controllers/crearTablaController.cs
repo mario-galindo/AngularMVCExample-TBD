@@ -46,5 +46,38 @@ namespace AngularMVC.Controllers
 
             }
         }
+
+        public string GetDataTypes()
+        {
+            ArrayList dataTypes = new ArrayList();
+
+            conexionBaseDatos manejoDB = new conexionBaseDatos();
+            string query = "select name from sys.types";
+            try
+            {
+                manejoDB.conectar("sa", "root");
+                SqlDataReader res = manejoDB.EjecutarSQL2(query);
+                while (res.Read())
+                {
+                    dataTypes.Add(res.GetValue(0));
+                }
+
+
+                //var jsonSerialiser = new JavaScriptSerializer();
+                //var json = jsonSerialiser.Serialize(dataBases);
+                var json = JsonConvert.SerializeObject(dataTypes);
+                return json;
+            }
+            catch (Exception)
+            {
+                return "false";
+
+            }
+        }
+        
+        public string crearTabla(string baseDato,string nombreTabla,string campos){
+
+            return "";
+        }
     }
 }

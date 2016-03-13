@@ -68,6 +68,14 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
     $scope.usuario;
     $scope.password;
+    $scope.baseDatos = null;
+    $scope.nombreTabla = "Tabla1";
+
+    $scope.init = function () {
+
+        $scope.getDataBases();
+        $scope.getDataTypes()
+    }
 
     $scope.data = {
         repeatSelect: null,
@@ -79,6 +87,8 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         ],
     };
 
+    $scope.datatypes = ['varchar', 'int', 'double', 'char', 'datetime', 'time'];
+
     $scope.camposTabla = [
         {
             pk: false,
@@ -87,7 +97,44 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
             tamano: 20,
             nulo:true
         }
-        ]
+    ]
+
+    $scope.print = function () {
+            
+        console.log($scope.camposTabla);
+        console.log($scope.baseDatos);
+    }
+
+    $scope.crearTabla = function () {
+        var data = {
+            baseDatos: $scope.crearBaseDatos,
+            nombreTabla: $scope.nombreTabla,
+            campos: $scope.camposTabla
+        };
+
+
+        $http.post('/crearTabla/crearTabla', data)
+        .success(function (data) {
+            console.log(data);
+            if (data == "Ok") {
+
+                $.bootstrapGrowl("tabla Creada exitosamente", {
+                    type: 'success'
+                });
+
+                $scope.nombreBaseDatos = ""
+
+            } else {
+                $.bootstrapGrowl("Error al crear tabla", {
+                    type: 'danger'
+                });
+            }
+        })
+    .error(function (error) {
+        console.log(error);
+    })
+
+    }
 
     $scope.agregarFila = function()
     {
@@ -107,6 +154,20 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         console.log(result[0]);
         $scope.data = result;
         console.log($scope.data);
+
+    })
+    .error(function (data) {
+        console.log(data);
+    })
+    }
+
+
+    $scope.getDataTypes = function () {
+        $http.get('/crearTabla/GetDataTypes')
+    .success(function (result) {
+        //console.log(result[0]);
+        $scope.datatypes = result;
+        //console.log($scope.data);
 
     })
     .error(function (data) {

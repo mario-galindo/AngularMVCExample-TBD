@@ -1,9 +1,11 @@
-﻿<div ng-init="getDataBases()">
+﻿<div ng-init="init()">
     <h3>Formulario Para Crear Tablas</h3>
-    <input type="button" name="name" value="cargar DB" ng-click="getDataBases()" />
+    <input type="button" class="btn btn-success" name="name" value="cargar DB" ng-click="getDataBases()" />
+
+    <input type="button" name="name" value="print" ng-click="print()" />
 
     <div class="col-md-3">
-        <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect" class="form-control">
+        <select name="repeatSelect" id="repeatSelect" ng-model="baseDatos" class="form-control">
             <option ng-repeat="option in data" value="{{option}}">{{option}}</option>
         </select>
     </div>
@@ -11,6 +13,9 @@
         <input type="button" class="form-control btn btn-primary" value="Agregar Columna" ng-click="agregarFila()" />
     </div>
     <br />
+    <br />
+    <input type="text" placeholder="Nombre Tabla" name="name" value=" " ng-model="nombreTabla" />
+    <input type="button" name="name" value="Crear Tabla" />
     <br />
     <div class="row">
         <table class="table table-striped">
@@ -27,7 +32,12 @@
                 <tr ng-repeat="row in camposTabla">
                     <td><input type="checkbox" name="name" value=" " ng-model="row.pk" /></td>
                     <td><input type="text" class="form-control" value=" " ng-model="row.nombre" /></td>
-                    <td><input type="text" class="form-control" value=" " ng-model="row.tipo" /></td>
+                    <!--<td><input type="text" class="form-control" value=" " ng-model="row.tipo" /></td>-->
+                    <td>
+                        <select class="form-control" ng-model="row.tipo">
+                            <option ng-repeat="tipo in datatypes" value="{{tipo}}">{{tipo}}</option>
+                        </select>
+                    </td>
                     <td><input type="text" class="form-control" value=" " ng-model="row.tamano" /></td>
                     <td><input type="checkbox" name="name" value=" " ng-model="row.nulo" /> </td>
                 </tr>
