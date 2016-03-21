@@ -69,7 +69,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
     $scope.usuario;
     $scope.password;
     $scope.baseDatos = null;
-    $scope.nombreTabla = "Tabla1";
+    $scope.nombreTabla = "";
 
     $scope.init = function () {
 
@@ -146,6 +146,10 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
             nulo: true
         });
 
+    }
+
+    $scope.eliminarCampo = function (key) {
+        $scope.camposTabla.splice(key, 1);
     }
 
     $scope.getDataBases = function () {
