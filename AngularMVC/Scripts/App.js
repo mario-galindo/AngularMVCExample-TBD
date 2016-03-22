@@ -54,6 +54,11 @@ myApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/Templates/crearTabla.html',
             controller: 'mainController'
         })
+        .when('/crearRelacion', {
+
+            templateUrl: '/Templates/CrearRelacion.html',
+            controller: 'mainController'
+        })
         
 
     	.otherwise({
@@ -77,6 +82,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         $scope.getDataTypes()
     }
 
+    /*
     $scope.data = {
         repeatSelect: null,
         availableOptions: [
@@ -86,6 +92,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
           { id: '3', name: 'msdb' }
         ],
     };
+    */
 
     $scope.datatypes = ['varchar', 'int', 'double', 'char', 'datetime', 'time'];
 
@@ -276,6 +283,28 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
                 console.log(error);
             })
 
+    }
+
+
+    $scope.databaseForRelation;
+    $scope.listaTablas = [];
+
+    $scope.crearForeignKey = function () {
+        console.log($scope.databaseForRelation);
+    }
+
+    //Funcion para cargar las tablas de una base de datos
+    $scope.getTables = function () {
+
+        $http.post('/CrearRelacion/GetTables', {baseDatos:$scope.databaseForRelation})
+           .success(function (result) {
+                console.log(result[0]);
+                $scope.listaTablas = result;
+                console.log($scope.listaTablas);
+           })
+           .error(function (data) {
+            console.log(data);
+        })
     }
 
 });
