@@ -47,6 +47,64 @@ namespace AngularMVC.Controllers
             }
         }
 
+        public string GetCamposRight(string tableRight, string baseDatos)
+        {
+            ArrayList camposRight = new ArrayList();
 
+            conexionBaseDatos manejoDB = new conexionBaseDatos();
+            string use = "use " + baseDatos;
+            string query = "select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tableRight + "'";
+            try
+            {
+                manejoDB.conectar("sa", "root");
+                manejoDB.EjecutarSQL(use);
+                SqlDataReader res = manejoDB.EjecutarSQL2(query);
+                while (res.Read())
+                {
+                    camposRight.Add(res.GetValue(0));
+                }
+
+
+                //var jsonSerialiser = new JavaScriptSerializer();
+                //var json = jsonSerialiser.Serialize(dataBases);
+                var json = JsonConvert.SerializeObject(camposRight);
+                return json;
+            }
+            catch (Exception)
+            {
+                return "false";
+
+            }
+        }
+
+        public string GetCamposLeft(string tableLeft, string baseDatos)
+        {
+            ArrayList camposLeft = new ArrayList();
+
+            conexionBaseDatos manejoDB = new conexionBaseDatos();
+            string use = "use " + baseDatos;
+            string query = "select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tableLeft + "'";
+            try
+            {
+                manejoDB.conectar("sa", "root");
+                manejoDB.EjecutarSQL(use);
+                SqlDataReader res = manejoDB.EjecutarSQL2(query);
+                while (res.Read())
+                {
+                    camposLeft.Add(res.GetValue(0));
+                }
+
+
+                //var jsonSerialiser = new JavaScriptSerializer();
+                //var json = jsonSerialiser.Serialize(dataBases);
+                var json = JsonConvert.SerializeObject(camposLeft);
+                return json;
+            }
+            catch (Exception)
+            {
+                return "false";
+
+            }
+        }
     }
 }

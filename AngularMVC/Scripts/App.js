@@ -307,4 +307,37 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         })
     }
 
+    //CARGAR CAMPOS
+    $scope.tableselectedRight;
+    $scope.tableselectedLeft;
+    $scope.estructutaTableRight = [];
+    $scope.estructutaTableLeft = []
+
+    //Funcion
+    $scope.cargarCamposRight = function () {
+
+        $http.post('/CrearRelacion/GetCamposRight', { tableRight: $scope.tableselectedRight, baseDatos: $scope.databaseForRelation })
+            .success(function (result) {
+                console.log(result[0]);
+                $scope.estructutaTableRight = result;
+                console.log($scope.estructutaTableRight);
+            })
+            .error(function (data) {
+                console.log(data);
+            })
+    }
+
+
+    $scope.cargarCamposLeft = function () {
+
+        $http.post('/CrearRelacion/GetCamposLeft', { tableLeft: $scope.tableselectedLeft, baseDatos: $scope.databaseForRelation })
+            .success(function (result) {
+                console.log(result[0]);
+                $scope.estructutaTableLeft = result;
+                console.log($scope.estructutaTableLeft);
+            })
+            .error(function (data) {
+                console.log(data);
+            })
+    }
 });
