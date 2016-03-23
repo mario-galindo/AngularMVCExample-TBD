@@ -1,8 +1,20 @@
 ﻿<style>
-    .centrado {
-        text-align: center;
-    }
+    
+.colorDiv 
+{
+    background-color:#f0f5f5;
+    border-radius: 25px;
+    text-align:center;
+}
+
+.centrado {
+   
+  text-align:center;
+   
+  
+}
 </style>
+
 <div ng-init="init()">
     <h3>Crear Relacion</h3>
 
@@ -18,61 +30,63 @@
     <div class="col-md-6">
         <button class="btn btn-primary" ng-click="getTables()">Cargar Tablas</button>
     </div>
-    <br />
-    <br />
-    <div class="col-md-12 text-center">
+    <div class="col-md-12">
         <hr width=100% align="center">
+    </div>
+    <br />
+    <br />
+    <div class="col-md-12 colorDiv">
         <h3>Tablas</h3>
-        <hr width=100% align="center">
     </div>
 
     <div class="col-md-12 centrado">
         <div class="col-md-6">
             <h4>Desde</h4>
-            <div class="col-md-3">
+            <div class="form-inline">
                 <select class="form-control" ng-model="tableselectedLeft">
                     <option value="" disabled selected>Seleccione una tabla</option>
                     <option ng-repeat="tabla in listaTablas" value="{{tabla}}">{{tabla}}</option>
                 </select>
-            </div>
-            <div class="col-md-3">
-                <button class="btn btn-primary" ng-click="cargarCamposLeft()">Ver Campos</button>
+                    <button class="btn btn-primary" ng-click="cargarCamposLeft()">Ver Campos</button>
             </div>
         </div>
+
         <div class="col-md-6">
             <h4>Hacia</h4>
-            <div class="col-md-3">
+            <div class="form-inline">
                 <select class="form-control" ng-model="tableselectedRight">
                     <option value="" disabled selected>Seleccione una tabla</option>
                     <option ng-repeat="tabla in listaTablas" value="{{tabla}}">{{tabla}}</option>
                 </select>
-            </div>
-            <div class="col-md-3">
                 <button class="btn btn-primary" ng-click="cargarCamposRight()">Ver Campos</button>
             </div>
         </div>
     </div>
 
-    <div class="col-md-12 text-center">
+    <div class="col-md-12">
         <hr width=100% align="center">
+    </div>
+
+    <div class="col-md-12 colorDiv">
         <h3>Campos de Tablas</h3>
-        <hr width=100% align="center">
     </div>
 
     <!--Campos Tabla-->
     <div class="col-md-12 centrado">
         <div class="col-md-6">
-            <div class="col-md-3">
+            <div class="form-inline">
+                <h4>Seleccione un Campo</h4>
                 <select class="form-control">
-                    <option value="" disabled selected>Seleccione una tabla</option>
+                    <option value="" disabled selected>Seleccione un campo</option>
                     <option ng-repeat="camposRight in estructutaTableLeft" value="{{camposRight}}">{{camposRight}}</option>
                 </select>
             </div>
          </div>
         <div class="col-md-6">
-            <div class="col-md-3">
+            <div class="form-inline">
+                <h4>Seleccione un Campo</h4>
                 <select class="form-control">
-                    <option value="" disabled selected>Seleccione una tabla</option>
+                    <option value="" disabled selected>Seleccione un campo</option>
                     <option ng-repeat="camposLeft in estructutaTableRight" value="{{camposLeft}}">{{camposLeft}}</option>
                 </select>
             </div>
@@ -81,19 +95,18 @@
 
     <!--Nombre de Relacion-->
     <div class="col-md-12 text-center">
+
+        <hr width=100% align="center">
+        <div class="form-inline">
+            <label>Nombre Relacion:</label>
+            <input type="text" class="form-control" />
+            <button class="btn btn-primary" ng-click="crearForeignKey()">Crear Relacion</button>
+        </div>
+    </div>
+
+    <div class="col-md-12">
         <hr width=100% align="center">
     </div>
-
-    <div class="col-md-6">
-        <label>Nombre Relacion:</label>
-    </div>
-    <div class="col-md-3">
-        <input type="text" class="form-control" />
-    </div>
-    <div class="col-md-3">
-        <button class="btn btn-primary" ng-click="crearForeignKey()">Crear Relacion</button>
-    </div>
-
 
 </div>
 
