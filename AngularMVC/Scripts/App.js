@@ -285,13 +285,33 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
     }
 
-
-    $scope.databaseForRelation;
     $scope.listaTablas = [];
 
+    $scope.databaseForRelation;
+    $scope.fieldRight;
+    $scope.fieldLeft;
+    $scope.tableselectedRight;
+    $scope.tableselectedLeft;
+    $scope.nombreRelacion;
+
     $scope.crearForeignKey = function () {
-        console.log($scope.databaseForRelation);
-    }
+
+
+        $http.post('/CrearRelacion/CrearForeignKey', { baseDatos: $scope.databaseForRelation, tablaDer: $scope.tableselectedRight, nombreRel: $scope.nombreRelacion, campoDer: $scope.fieldRight, tablaIzq: $scope.tableselectedLeft, campoIzq: $scope.fieldLeft })
+           .success(function (result) {
+               if (result) {
+                   $.bootstrapGrowl("Foreign key creada exitosamente", {
+                       type: 'success'
+                   });
+               }
+           })
+           .error(function (data) {
+               $.bootstrapGrowl("Error al crear Foreign key", {
+                   type: 'success'
+               });
+           })
+
+     }
 
     //Funcion para cargar las tablas de una base de datos
     $scope.getTables = function () {
@@ -308,8 +328,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
     }
 
     //CARGAR CAMPOS
-    $scope.tableselectedRight;
-    $scope.tableselectedLeft;
+    
     $scope.estructutaTableRight = [];
     $scope.estructutaTableLeft = []
 

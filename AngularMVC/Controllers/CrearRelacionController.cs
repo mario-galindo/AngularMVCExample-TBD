@@ -106,5 +106,27 @@ namespace AngularMVC.Controllers
 
             }
         }
+
+        public bool CrearForeignKey(string baseDatos, string tablaDer, string nombreRel, string campoDer, string tablaIzq, string campoIzq)
+        {
+            conexionBaseDatos manejoDB = new conexionBaseDatos();
+            string use = "use " + baseDatos;
+            string foreignKey = "alter table " + tablaDer + " add constraint " + nombreRel + " foreign key(" + campoDer + ") references " + tablaIzq + "(" + campoIzq + ")";
+
+            try
+            {
+                manejoDB.conectar("sa", "root");
+                manejoDB.EjecutarSQL(use);
+                manejoDB.EjecutarSQL(foreignKey);
+                manejoDB.Desconectar();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+                //throw;
+            }
+        }
     }
 }

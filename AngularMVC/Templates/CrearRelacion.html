@@ -76,7 +76,7 @@
         <div class="col-md-6">
             <div class="form-inline">
                 <h4>Seleccione un Campo</h4>
-                <select class="form-control">
+                <select class="form-control" ng-model="fieldLeft">
                     <option value="" disabled selected>Seleccione un campo</option>
                     <option ng-repeat="camposRight in estructutaTableLeft" value="{{camposRight}}">{{camposRight}}</option>
                 </select>
@@ -85,7 +85,7 @@
         <div class="col-md-6">
             <div class="form-inline">
                 <h4>Seleccione un Campo</h4>
-                <select class="form-control">
+                <select class="form-control" ng-model="fieldRight">
                     <option value="" disabled selected>Seleccione un campo</option>
                     <option ng-repeat="camposLeft in estructutaTableRight" value="{{camposLeft}}">{{camposLeft}}</option>
                 </select>
@@ -99,7 +99,7 @@
         <hr width=100% align="center">
         <div class="form-inline">
             <label>Nombre Relacion:</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" ng-model="nombreRelacion" />
             <button class="btn btn-primary" ng-click="crearForeignKey()">Crear Relacion</button>
         </div>
     </div>
