@@ -105,6 +105,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\StyleLogin.css" />
+    <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
+    <Content Include="Content\sweetalert\docs.css" />
+    <Content Include="Content\sweetalert\sweet-alert.css" />
+    <Content Include="Content\sweetalert\thumbs-up.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\frontpage-whatisnavicat-cudes.png" />
@@ -136,6 +140,11 @@
       <DependentUpon>ModeloProducto.edmx</DependentUpon>
       <LastGenOutput>ModeloProducto.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\sweetalert\sweet-alert-combine.less" />
+    <Content Include="Content\sweetalert\sweet-alert-animations.less" />
+    <Content Include="Content\sweetalert\sweet-alert.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\App.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -143,6 +152,7 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Templates\borrarRelacion.html" />
     <Content Include="Templates\CrearBaseDato.html" />
     <Content Include="Templates\CrearRelacion.html" />
     <Content Include="Templates\crearTabla.html" />
@@ -160,12 +170,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="conexionBaseDatos.cs" />
+    <Compile Include="Controllers\borrarRelacionController.cs" />
     <Compile Include="Controllers\CrearBaseDatoController.cs" />
     <Compile Include="Controllers\CrearRelacionController.cs" />
     <Compile Include="Controllers\crearTablaController.cs" />
     <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Controllers\SweetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +209,8 @@
     <Content Include="Views\CrearBaseDato\Index.cshtml" />
     <Content Include="Views\crearTabla\Index.cshtml" />
     <Content Include="Views\CrearRelacion\Index.cshtml" />
+    <Content Include="Views\Sweet\Alert.cshtml" />
+    <Content Include="Views\borrarRelacion\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

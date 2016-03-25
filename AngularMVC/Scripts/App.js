@@ -59,6 +59,11 @@ myApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/Templates/CrearRelacion.html',
             controller: 'mainController'
         })
+        .when('/borrarRelacion', {
+
+            templateUrl: '/Templates/borrarRelacion.html',
+            controller: 'mainController'
+        })
         
 
     	.otherwise({
@@ -299,10 +304,10 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
         $http.post('/CrearRelacion/CrearForeignKey', { baseDatos: $scope.databaseForRelation, tablaDer: $scope.tableselectedRight, nombreRel: $scope.nombreRelacion, campoDer: $scope.fieldRight, tablaIzq: $scope.tableselectedLeft, campoIzq: $scope.fieldLeft })
            .success(function (result) {
-               if (result) {
-                   $.bootstrapGrowl("Foreign key creada exitosamente", {
-                       type: 'success'
-                   });
+               if (result == "true") {
+                   swal("Buen Trabajo!", "relacion creada exitosamente", "success");
+               } else {
+                   sweetAlert("Error...", result, "error");
                }
            })
            .error(function (data) {
@@ -358,5 +363,57 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
             .error(function (data) {
                 console.log(data);
             })
+    }
+
+   
+    //Get Constraints
+    $scope.listaConstraints = [];
+    $scope.constraintSelected;
+
+    $scope.idTabla;
+    $scope.recuperarIdTable = function(){
+
+        $http.post('/borrarRelacion/GetTablesID', { baseDatos: $scope.databaseForRelation, tabla: $scope.tableselectedLeft })
+          .success(function (result) {
+              $scope.idTabla = result[0];
+              console.log($scope.idTabla);
+          })
+          .error(function (data) {
+              console.log(data);
+          })
+        
+       
+    }
+
+
+    
+
+    $scope.getConstraints = function () {
+
+        $http.post('/borrarRelacion/GetConstraints', { baseDatos: $scope.databaseForRelation,id:$scope.idTabla })
+          .success(function (result) {
+              $scope.listaConstraints = result;
+          })
+          .error(function (data) {
+              console.log(data);
+          })
+    }
+
+   
+
+   
+
+    //Borrar Constraints
+    $scope.borrarConstraint = function () {
+
+        $http.post('/borrarRelacion/borrarConstraints', { baseDatos: $scope.databaseForRelation, constraintSelected: $scope.constraintSelected })
+          .success(function (result) {
+              if (result == "true") {
+                  swal("Buen Trabajo!", "relacion borrada exitosamente", "success");
+              }
+          })
+          .error(function (data) {
+              console.log(data);
+          })
     }
 });

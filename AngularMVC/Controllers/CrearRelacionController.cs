@@ -107,7 +107,7 @@ namespace AngularMVC.Controllers
             }
         }
 
-        public bool CrearForeignKey(string baseDatos, string tablaDer, string nombreRel, string campoDer, string tablaIzq, string campoIzq)
+        public string CrearForeignKey(string baseDatos, string tablaDer, string nombreRel, string campoDer, string tablaIzq, string campoIzq)
         {
             conexionBaseDatos manejoDB = new conexionBaseDatos();
             string use = "use " + baseDatos;
@@ -119,14 +119,17 @@ namespace AngularMVC.Controllers
                 manejoDB.EjecutarSQL(use);
                 manejoDB.EjecutarSQL(foreignKey);
                 manejoDB.Desconectar();
-                return true;
+                return "true";
             }
-            catch (Exception)
+            catch (SqlException e)
             {
 
-                return false;
+                return e.Message.ToString();
                 //throw;
             }
         }
+
+        
+    
     }
 }

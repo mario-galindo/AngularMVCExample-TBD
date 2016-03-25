@@ -41,7 +41,7 @@
 
     <div class="col-md-12 centrado">
         <div class="col-md-6">
-            <h4>Desde</h4>
+            <h4>Desde(Llave Primaria)</h4>
             <div class="form-inline">
                 <select class="form-control" ng-model="tableselectedLeft">
                     <option value="" disabled selected>Seleccione una tabla</option>
@@ -99,7 +99,7 @@
         <hr width=100% align="center">
         <div class="form-inline">
             <label>Nombre Relacion:</label>
-            <input type="text" class="form-control" ng-model="nombreRelacion" />
+            <input type="text" class="form-control" placeholder="Ingrese nombre relacion" ng-model="nombreRelacion" />
             <button class="btn btn-primary" ng-click="crearForeignKey()">Crear Relacion</button>
         </div>
     </div>

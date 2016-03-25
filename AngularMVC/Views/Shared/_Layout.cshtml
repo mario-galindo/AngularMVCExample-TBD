@@ -28,6 +28,10 @@
     <!--CDN for fontAwesome Icons-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+    <!--SweetAlert-->
+    <script src="~/Scripts/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/sweetalert.css">
+
     <!--Style for NAV Hover-->
     <style>
         
@@ -59,9 +63,17 @@
                 <ul class="nav navbar-nav baseDato">
                     <li><a href="CrearBaseDato"><i class="fa fa-database fa-2x"></i> Crear Base de Datos</a></li>
                     <li><a href="crearTabla"><i class="fa fa-table fa-2x"></i> Crear Tabla</a></li>
-                    <li><a href="crearRelacion"><i class="fa fa-random fa-2x"></i> Crear Relaciones</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-random fa-2x"></i> Relaciones <span  class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="crearRelacion"> Crear Relaciones</a></li>
+                            <li><a href="borrarRelacion"> Borrar Relaciones</a></li>
+                        </ul>
+                    </li>
                     <li><a href="Editor"><i class="fa fa-file-code-o fa-2x"></i> Editor de Consultas</a></li>
                 </ul>
+                
+
                 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#/sesion"><i class="fa fa-user"></i> Salir</a></li>
