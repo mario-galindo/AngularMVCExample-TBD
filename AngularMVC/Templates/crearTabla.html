@@ -72,23 +72,23 @@
             </thead>
             <tbody align="center">
                 <tr ng-repeat="row in camposTabla">
-                    <td><input type="checkbox" name="name" value=" " ng-model="row.pk" /></td>
-                    <td><input type="text" class="form-control" value=" " ng-model="row.nombre" /></td>
+                    <td><input type="checkbox" name="name" value=" " ng-model="row[0]" /></td>
+                    <td><input type="text" class="form-control" value=" " ng-model="row[1]" /></td>
                     <!--<td><input type="text" class="form-control" value=" " ng-model="row.tipo" /></td>-->
                     <td>
-                        <select class="form-control" ng-model="row.tipo">
+                        <select class="form-control" ng-model="row[2]">
                             <option ng-repeat="tipo in datatypes" value="{{tipo}}">{{tipo}}</option>
                         </select>
                     </td>
-                    <td><input type="text" class="form-control" value=" " ng-model="row.tamano" /></td>
-                    <td><input type="checkbox" name="name" value=" " ng-model="row.nulo" /> </td>
+                    <td><input type="text" class="form-control" value=" " ng-model="row[3]" /></td>
+                    <td><input type="checkbox" name="name" value=" " ng-model="row[4]" /> </td>
                     <td><button class="btn btn-danger btn-circle col-md-2" ng-click="eliminarCampo($index)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></td>
                 </tr>
             </tbody>
         </table>
 
         <div class="col-md-12">
-            <input type="button" class="btn btn-primary center-block" name="name" value="Crear Tabla" />
+            <input type="button" class="btn btn-primary center-block" ng-click="crearTabla()" value="Crear Tabla" />
         </div>
 
     </div>

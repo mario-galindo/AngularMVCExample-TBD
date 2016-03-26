@@ -102,13 +102,13 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
     $scope.datatypes = ['varchar', 'int', 'double', 'char', 'datetime', 'time'];
 
     $scope.camposTabla = [
-        {
-            pk: false,
-            nombre: "",
-            tipo: "varchar",
-            tamano: 20,
-            nulo:true
-        }
+        [
+            false,
+            "",
+            "varchar",
+            20,
+            true
+        ]
     ]
 
     $scope.print = function () {
@@ -119,22 +119,22 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
     $scope.crearTabla = function () {
         var data = {
-            baseDatos: $scope.crearBaseDatos,
+            baseDatos: $scope.baseDatos,
             nombreTabla: $scope.nombreTabla,
             campos: $scope.camposTabla
         };
 
 
         $http.post('/crearTabla/crearTabla', data)
-        .success(function (data) {
-            console.log(data);
-            if (data == "Ok") {
+        .success(function (d) {
+            console.log(d);
+            if (d == "ok") {
 
                 $.bootstrapGrowl("tabla Creada exitosamente", {
                     type: 'success'
                 });
 
-                $scope.nombreBaseDatos = ""
+               
 
             } else {
                 $.bootstrapGrowl("Error al crear tabla", {
@@ -148,15 +148,14 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
     }
 
-    $scope.agregarFila = function()
-    {
-        $scope.camposTabla.push({
-            pk: false,
-            nombre: "",
-            tipo: "varchar",
-            tamano: 20,
-            nulo: true
-        });
+    $scope.agregarFila = function () {
+        $scope.camposTabla.push([
+            false,
+            "",
+            "varchar",
+            20,
+            true
+        ]);
 
     }
 

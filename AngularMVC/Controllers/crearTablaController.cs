@@ -74,10 +74,49 @@ namespace AngularMVC.Controllers
 
             }
         }
-        
-        public string crearTabla(string baseDato,string nombreTabla,string campos){
 
-            return "";
+        public string crearTabla(string baseDatos, string nombreTabla, string[][] campos)
+        {
+            string query = "create table " + baseDatos + ".dbo." + nombreTabla + "(";
+            string _campos = "";
+            for (int x = 0; x < campos.Length; x++)
+            {
+
+                string isPk = Convert.ToString(campos[x][0]);
+                
+
+                string tmpTamano = campos[x][2] == "int" ? "" : "  (" + campos[x][3] + ")";
+                string tmp = campos[x][1] + " " + campos[x][2] + tmpTamano;
+
+                if (isPk == "True")
+                {
+                    _campos = _campos + tmp + " primary key" + ",";
+                    isPk = "False";
+                }
+                else {
+                    _campos = _campos + tmp + ",";
+                }
+                
+            }
+
+            query = query + _campos + " )";
+
+            try
+            {
+                conexionBaseDatos manejoDB = new conexionBaseDatos();
+                manejoDB.conectar("sa", "root");
+                manejoDB.EjecutarSQL(query);
+                manejoDB.Desconectar();
+
+                return "ok";
+            }
+            catch (Exception)
+            {
+                return "false";
+                //throw;
+            }
+            
+            
         }
     }
 }
