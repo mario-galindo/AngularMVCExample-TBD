@@ -415,4 +415,23 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
               console.log(data);
           })
     }
+
+
+    //Ejecutar Queries
+    $scope.resultadoQuery = [];
+    $scope.QueryToExecute;
+
+    $scope.ejecutarQuery = function () {
+
+        $http.post('/Editor/execQueryRows', { baseDatos: $scope.baseDatos, query: $scope.QueryToExecute })
+          .success(function (result) {
+
+              $scope.resultadoQuery = result;
+              console.log($scope.resultadoQuery);
+          })
+          .error(function (data) {
+              console.log(data);
+          })
+        //alert($scope.baseDatos);
+    }
 });
