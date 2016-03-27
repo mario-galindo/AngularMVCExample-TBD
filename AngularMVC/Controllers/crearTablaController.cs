@@ -79,10 +79,14 @@ namespace AngularMVC.Controllers
         {
             string query = "create table " + baseDatos + ".dbo." + nombreTabla + "(";
             string _campos = "";
+            string campoPk = "";
+            string Pk_Listos = "";
+
             for (int x = 0; x < campos.Length; x++)
             {
 
                 string isPk = Convert.ToString(campos[x][0]);
+                //campoPk = campos[x][1];
                 string isDatetime = campos[x][2];
                 
 
@@ -104,8 +108,9 @@ namespace AngularMVC.Controllers
 
                 if (isPk == "True")
                 {
-                    _campos = _campos + tmp + " primary key" + ",";
-                    isPk = "False";
+                   _campos = _campos + tmp + "" + ",";
+                    campoPk += campos[x][1] + ",";
+                    
                 }
                 else {
                     _campos = _campos + tmp + ",";
@@ -115,7 +120,11 @@ namespace AngularMVC.Controllers
                 
             }
 
-            query = query + _campos + " )";
+            string aux = campoPk.TrimEnd(',');
+            string allPk = "primary key(" + aux + ")";
+
+
+            query = query + _campos + allPk + " )";
 
             try
             {
