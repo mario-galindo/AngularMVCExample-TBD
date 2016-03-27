@@ -25,13 +25,13 @@ namespace AngularMVC.Controllers
              string use = "use " + baseDatos;
 
             conexionBaseDatos manejoDB = new conexionBaseDatos();
-           
+            string[] data = new String[2];
             try
             {
                 manejoDB.conectar("sa", "root");
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
-                int columnas;
+              
                 
                 while (res.Read())
                 {
@@ -45,17 +45,20 @@ namespace AngularMVC.Controllers
                 }
 
 
-                //datasources.Add(columnas = res.FieldCount);
+                datasources.Add("True");
 
                
                 var json = JsonConvert.SerializeObject(datasources);
-                return json; 
+
+                
+
+                return json;
                
             }
-            catch (Exception)
+            catch (SqlException e)
             {
-                return "false";
-
+               
+                return e.Message.ToString();
             }
         }
         

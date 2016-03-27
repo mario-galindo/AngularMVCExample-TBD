@@ -13,11 +13,14 @@
     <div class="col-md-3">
         <h5>Seleccione una base de datos:</h5>
     </div>
+
     <div class="col-md-3">
-        <select name="repeatSelect" id="repeatSelect" ng-model="baseDatos" class="form-control">
-            <option value="" disabled selected>Seleccione una base de datos</option>
-            <option ng-repeat="option in data" value="{{option}}">{{option}}</option>
-        </select>
+        
+            <select name="repeatSelect" id="repeatSelect" ng-model="baseDatos" class="form-control" required>
+                <option value="" disabled selected>Seleccione una base de datos</option>
+                <option ng-repeat="option in data" value="{{option}}">{{option}}</option>
+            </select>
+        
     </div>
     <br /><br />
     <div class="col-md-12">
@@ -25,9 +28,12 @@
     </div>
 
     <div class="col-md-12">
-        <textarea class="form-control textA" id="mytextarea" ng-model="QueryToExecute"></textarea>
-        <br />
-        <button class="btn btn-primary" ng-click="ejecutarQuery()">Ejecutar Query</button>
+        <form ng-submit="ejecutarQuery()">
+            <textarea class="form-control textA" id="mytextarea" ng-model="QueryToExecute" required></textarea>
+            <br />
+            <button type="submit" class="btn btn-primary">Ejecutar Query</button>
+            <button type="button" class="btn btn-success" ng-click="limpiarConsola()">Limpiar Consola</button>
+        </form>
     </div>
 
     <table>

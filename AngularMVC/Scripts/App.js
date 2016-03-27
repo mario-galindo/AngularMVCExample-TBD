@@ -426,12 +426,29 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         $http.post('/Editor/execQueryRows', { baseDatos: $scope.baseDatos, query: $scope.QueryToExecute })
           .success(function (result) {
 
-              $scope.resultadoQuery = result;
-              console.log($scope.resultadoQuery);
+                
+                var size = result.length;
+                
+                if (result[size - 1] == "True") {
+                    $scope.resultadoQuery = result;
+                    $scope.resultadoQuery.splice(size - 1, 1);
+
+                    $.bootstrapGrowl("Consulta ejecutada exitosamente", {
+                        type: 'success'
+                    });
+
+                } else {
+                    sweetAlert("Error...", result, "error");
+                }
+              
           })
           .error(function (data) {
               console.log(data);
           })
         //alert($scope.baseDatos);
+    }
+
+    $scope.limpiarConsola = function () {
+        $scope.resultadoQuery = [];
     }
 });
