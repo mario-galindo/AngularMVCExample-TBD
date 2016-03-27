@@ -451,4 +451,6 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
     $scope.limpiarConsola = function () {
         $scope.resultadoQuery = [];
     }
+
+    
 });

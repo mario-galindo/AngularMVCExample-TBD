@@ -80,7 +80,7 @@
                             <option ng-repeat="tipo in datatypes" value="{{tipo}}">{{tipo}}</option>
                         </select>
                     </td>
-                    <td><input type="text" class="form-control" value=" " ng-model="row[3]" /></td>
+                    <td><input type="text" class="form-control" value=" " ng-model="row[3]" ng-hide="row[2] == 'datetime' || row[2] == 'int' || row[2] == 'bigint' || row[2] == 'bit' || row[2] == 'date' || row[2] == 'datetime' || row[2] == 'float' || row[2] == 'geography' || row[2] == 'geometry' || row[2] == 'hierarchyid' || row[2] == 'image' || row[2] == 'money' || row[2] == 'ntext' || row[2] == 'real' || row[2] == 'smalldatetime' || row[2] == 'smallint' || row[2] == 'smallmoney' || row[2] == 'sql_variant' || row[2] == 'text' || row[2] == 'tinyint' || row[2] == 'uniqueidentifier' || row[2] == 'xml' " /></td>
                     <td><input type="checkbox" name="name" value=" " ng-model="row[4]" /> </td>
                     <td><button class="btn btn-danger btn-circle col-md-2" ng-click="eliminarCampo($index)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></td>
                 </tr>

@@ -83,10 +83,24 @@ namespace AngularMVC.Controllers
             {
 
                 string isPk = Convert.ToString(campos[x][0]);
+                string isDatetime = campos[x][2];
                 
 
                 string tmpTamano = campos[x][2] == "int" ? "" : "  (" + campos[x][3] + ")";
-                string tmp = campos[x][1] + " " + campos[x][2] + tmpTamano;
+                string tmp;
+
+
+
+                if (isDatetime == "datetime" || isDatetime == "bigint" || isDatetime == "bit" || isDatetime == "date" || isDatetime == "datetime" || isDatetime == "float" || isDatetime == "geography" || isDatetime == "geometry" || isDatetime == "hierarchyid" || isDatetime == "image" || isDatetime == "money" || isDatetime == "ntext" || isDatetime == "real" || isDatetime == "smalldatetime" || isDatetime == "smallint" || isDatetime == "smallmoney" || isDatetime == "sql_variant" || isDatetime == "text" || isDatetime == "tinyint" || isDatetime == "uniqueidentifier" || isDatetime == "xml")
+                {
+                    tmp = campos[x][1] + " " + campos[x][2];
+                }
+                else {
+
+                    tmp = campos[x][1] + " " + campos[x][2] + tmpTamano;
+                
+                }
+
 
                 if (isPk == "True")
                 {
@@ -96,6 +110,8 @@ namespace AngularMVC.Controllers
                 else {
                     _campos = _campos + tmp + ",";
                 }
+
+                
                 
             }
 
