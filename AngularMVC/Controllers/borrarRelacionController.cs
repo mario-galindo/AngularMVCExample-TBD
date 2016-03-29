@@ -49,11 +49,11 @@ namespace AngularMVC.Controllers
             }
         }
 
-        public string borrarConstraints(string baseDatos, string constraintSelected)
+        public string borrarConstraints(string baseDatos, string constraintSelected,string tabla)
         {
             conexionBaseDatos manejoDB = new conexionBaseDatos();
             string use = "use " + baseDatos;
-            string borrar = "alter table Curso drop constraint "+ constraintSelected +" ";
+            string borrar = "alter table "+tabla+" drop constraint "+ constraintSelected +" ";
 
             try
             {

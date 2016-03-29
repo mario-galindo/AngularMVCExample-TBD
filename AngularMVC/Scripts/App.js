@@ -127,7 +127,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
         $http.post('/crearTabla/crearTabla', data)
         .success(function (d) {
-            console.log(d);
+            
             if (d == "ok") {
 
                 $.bootstrapGrowl("tabla Creada exitosamente", {
@@ -137,9 +137,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
                
 
             } else {
-                $.bootstrapGrowl("Error al crear tabla", {
-                    type: 'danger'
-                });
+                sweetAlert("Error al crear tabla", d, "error");
             }
         })
     .error(function (error) {
@@ -166,9 +164,9 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
     $scope.getDataBases = function () {
         $http.get('/crearTabla/GetDataBases')
     .success(function (result) {
-        console.log(result[0]);
+       
         $scope.data = result;
-        console.log($scope.data);
+      
 
     })
     .error(function (data) {
@@ -268,7 +266,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
             
         $http.post('/CrearBaseDato/crearBaseDatos', { user: localStorageService.get('user'), pass: localStorageService.get('pass'),nombre: $scope.nombreBaseDatos })
             .success(function (data) {
-                console.log(data);
+               
                 if (data == "Ok") {
 
                     $.bootstrapGrowl("Base de datos Creada exitosamente", {
@@ -322,9 +320,9 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
         $http.post('/CrearRelacion/GetTables', {baseDatos:$scope.databaseForRelation})
            .success(function (result) {
-                console.log(result[0]);
+               
                 $scope.listaTablas = result;
-                console.log($scope.listaTablas);
+                
            })
            .error(function (data) {
             console.log(data);
@@ -341,9 +339,9 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
         $http.post('/CrearRelacion/GetCamposRight', { tableRight: $scope.tableselectedRight, baseDatos: $scope.databaseForRelation })
             .success(function (result) {
-                console.log(result[0]);
+                
                 $scope.estructutaTableRight = result;
-                console.log($scope.estructutaTableRight);
+               
             })
             .error(function (data) {
                 console.log(data);
@@ -355,9 +353,9 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
         $http.post('/CrearRelacion/GetCamposLeft', { tableLeft: $scope.tableselectedLeft, baseDatos: $scope.databaseForRelation })
             .success(function (result) {
-                console.log(result[0]);
+               
                 $scope.estructutaTableLeft = result;
-                console.log($scope.estructutaTableLeft);
+               
             })
             .error(function (data) {
                 console.log(data);
@@ -375,7 +373,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         $http.post('/borrarRelacion/GetTablesID', { baseDatos: $scope.databaseForRelation, tabla: $scope.tableselectedLeft })
           .success(function (result) {
               $scope.idTabla = result[0];
-              console.log($scope.idTabla);
+              
           })
           .error(function (data) {
               console.log(data);
@@ -405,7 +403,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
     //Borrar Constraints
     $scope.borrarConstraint = function () {
 
-        $http.post('/borrarRelacion/borrarConstraints', { baseDatos: $scope.databaseForRelation, constraintSelected: $scope.constraintSelected })
+        $http.post('/borrarRelacion/borrarConstraints', { baseDatos: $scope.databaseForRelation, constraintSelected: $scope.constraintSelected,tabla:$scope.tableselectedLeft })
           .success(function (result) {
               if (result == "true") {
                   swal("Buen Trabajo!", "relacion borrada exitosamente", "success");

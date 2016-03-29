@@ -135,9 +135,9 @@ namespace AngularMVC.Controllers
 
                 return "ok";
             }
-            catch (Exception)
+            catch (SqlException e)
             {
-                return "false";
+                return e.Message.ToString();
                 //throw;
             }
             
