@@ -64,6 +64,11 @@ myApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/Templates/borrarRelacion.html',
             controller: 'mainController'
         })
+        .when('/editarCampos', {
+
+            templateUrl: '/Templates/editarCampos.html',
+            controller: 'mainController'
+        })
         
 
     	.otherwise({
@@ -448,6 +453,36 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
 
     $scope.limpiarConsola = function () {
         $scope.resultadoQuery = [];
+    }
+
+
+    //Edicion de Campos
+    $scope.AddCampo;
+    $scope.nuevoCampo;
+
+    $scope.deleteCampo;
+    $scope.changeTipo;
+    $scope.addKey;
+    $scope.deleteKey;
+
+    $scope.tipoAccion;
+
+    $scope.ejecutarAccion = function () {
+
+        if ($scope.AddCampo) {
+            $scope.tipoAccion = 1;
+        } else if ($scope.deleteCampo) {
+            $scope.tipoAccion = 2;
+        } else if ($scope.changeTipo) {
+            $scope.tipoAccion = 3;
+        } else if ($scope.addKey) {
+            $scope.tipoAccion = 4;
+        } else if ($scope.deleteKey) {
+            $scope.tipoAccion = 5;
+        }
+
+        alert($scope.tipoAccion +" "+ $scope.nuevoCampo);
+        
     }
 
     

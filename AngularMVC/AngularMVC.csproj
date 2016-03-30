@@ -156,6 +156,7 @@
     <Content Include="Templates\CrearBaseDato.html" />
     <Content Include="Templates\CrearRelacion.html" />
     <Content Include="Templates\crearTabla.html" />
+    <Content Include="Templates\editarCampos.html" />
     <Content Include="Templates\Editor.html" />
     <Content Include="Templates\Home.html" />
     <Content Include="Templates\login.html" />
@@ -174,6 +175,7 @@
     <Compile Include="Controllers\CrearBaseDatoController.cs" />
     <Compile Include="Controllers\CrearRelacionController.cs" />
     <Compile Include="Controllers\crearTablaController.cs" />
+    <Compile Include="Controllers\editarCamposController.cs" />
     <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
@@ -211,6 +213,7 @@
     <Content Include="Views\CrearRelacion\Index.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Views\borrarRelacion\Index.cshtml" />
+    <Content Include="Views\editarCampos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

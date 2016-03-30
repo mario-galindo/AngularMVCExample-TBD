@@ -64,7 +64,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav baseDato">
                     <li><a href="CrearBaseDato"><i class="fa fa-database fa-2x"></i> Crear Base de Datos</a></li>
-                    <li><a href="crearTabla"><i class="fa fa-table fa-2x"></i> Crear Tabla</a></li>
+                    
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-table fa-2x"></i> Tablas <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="crearTabla"> Crear Tabla</a></li>
+                            <li><a href="editarCampos"> editar Campos</a></li>
+                        </ul>
+                    </li>
+
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-random fa-2x"></i> Relaciones <span  class="caret"></span></a>
                         <ul class="dropdown-menu">

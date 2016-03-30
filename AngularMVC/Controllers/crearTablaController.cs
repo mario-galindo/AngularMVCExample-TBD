@@ -81,11 +81,13 @@ namespace AngularMVC.Controllers
             string _campos = "";
             string campoPk = "";
             string Pk_Listos = "";
+            
 
             for (int x = 0; x < campos.Length; x++)
             {
 
                 string isPk = Convert.ToString(campos[x][0]);
+                string isNotNull = Convert.ToString(campos[x][0]);
                 //campoPk = campos[x][1];
                 string isDatetime = campos[x][2];
                 
@@ -106,15 +108,17 @@ namespace AngularMVC.Controllers
                 }
 
 
-                if (isPk == "True")
+                if (isPk == "True" || isNotNull == "True")
                 {
-                   _campos = _campos + tmp + "" + ",";
+                   _campos = _campos + tmp + "" + " NOT NULL" + ",";
                     campoPk += campos[x][1] + ",";
                     
                 }
                 else {
                     _campos = _campos + tmp + ",";
                 }
+
+               
 
                 
                 
