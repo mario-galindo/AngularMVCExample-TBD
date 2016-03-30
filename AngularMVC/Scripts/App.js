@@ -459,6 +459,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
     //Edicion de Campos
     $scope.AddCampo;
     $scope.nuevoCampo;
+    $scope.tipoData;
 
     $scope.deleteCampo;
     $scope.changeTipo;
@@ -481,7 +482,21 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
             $scope.tipoAccion = 5;
         }
 
-        alert($scope.tipoAccion +" "+ $scope.nuevoCampo);
+        //Request
+        $http.post('/editarCampos/edicionCampos', { baseDatos: $scope.databaseForRelation, tabla: $scope.tableselectedLeft, nuevo: $scope.nuevoCampo, accion: $scope.tipoAccion, campo: $scope.fieldLeft,tipoData:$scope.tipoData })
+          .success(function (result) {
+              console.log(result);
+              if (result == "true") {
+                  $.bootstrapGrowl("Consulta ejecutada exitosamente", {
+                      type: 'success'
+                  });
+              } else {
+                  sweetAlert("Error...", result, "error");
+              }
+          })
+          .error(function (data) {
+              console.log(data);
+          })
         
     }
 

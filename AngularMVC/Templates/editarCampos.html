@@ -10,7 +10,7 @@
     }
 </style>
 
-<form ng-submit="ejecutarAccion()">
+
     <div ng-init="init()">
         <h3>Editar Campos </h3>
 
@@ -75,7 +75,7 @@
                     <input type="checkbox" ng-model="deleteCampo" />Borrar Campo <br />
 
                     <input type="checkbox" ng-model="changeTipo" />Modificar tipo de dato <br />
-                    <select class="form-control" ng-show="changeTipo">
+                    <select class="form-control" ng-show="changeTipo" ng-model="tipoData">
                         <option ng-repeat="tipo in datatypes" value="{{tipo}}">{{tipo}}</option>
                     </select>
 
@@ -96,7 +96,7 @@
             <hr width=100% align="center">
             <div class="form-inline">
 
-                <button type="submit" class="btn btn-primary">Ejecutar Accion</button>
+                <button class="btn btn-primary" ng-click="ejecutarAccion()">Ejecutar Accion</button>
             </div>
         </div>
 
@@ -105,4 +105,3 @@
         </div>
 
     </div>
-</form>
