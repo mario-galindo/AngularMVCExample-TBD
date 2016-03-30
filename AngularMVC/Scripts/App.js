@@ -455,16 +455,36 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         $scope.resultadoQuery = [];
     }
 
+    $scope.tipoDatoSelected;
+
+    $scope.traerTipo = function () {
+        
+        //Request
+        $http.post('/editarCampos/getTipo', { baseDatos: $scope.databaseForRelation, tabla: $scope.tableselectedLeft, campo: $scope.fieldLeft })
+          .success(function (result) {
+
+              $scope.tipoDatoSelected = result.toString();
+              console.log($scope.tipoDatoSelected);
+              
+          })
+          .error(function (data) {
+              console.log(data);
+          })
+    }
+
 
     //Edicion de Campos
     $scope.AddCampo;
     $scope.nuevoCampo;
     $scope.tipoData;
+    
 
     $scope.deleteCampo;
     $scope.changeTipo;
     $scope.addKey;
     $scope.deleteKey;
+    $scope.Notallownull;
+    $scope.allownull;
 
     $scope.tipoAccion;
 
@@ -478,12 +498,17 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
             $scope.tipoAccion = 3;
         } else if ($scope.addKey) {
             $scope.tipoAccion = 4;
+           
         } else if ($scope.deleteKey) {
             $scope.tipoAccion = 5;
+        } else if ($scope.Notallownull) {
+            $scope.tipoAccion = 5;
+        } else if ($scope.allownull) {
+            $scope.tipoAccion = 6;
         }
 
         //Request
-        $http.post('/editarCampos/edicionCampos', { baseDatos: $scope.databaseForRelation, tabla: $scope.tableselectedLeft, nuevo: $scope.nuevoCampo, accion: $scope.tipoAccion, campo: $scope.fieldLeft,tipoData:$scope.tipoData })
+        $http.post('/editarCampos/edicionCampos', { baseDatos: $scope.databaseForRelation, tabla: $scope.tableselectedLeft, nuevo: $scope.nuevoCampo, accion: $scope.tipoAccion, campo: $scope.fieldLeft, tipoData: $scope.tipoData, tipoSele: $scope.tipoDatoSelected })
           .success(function (result) {
               console.log(result);
               if (result == "true") {

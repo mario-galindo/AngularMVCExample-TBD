@@ -23,7 +23,7 @@ namespace AngularMVC
             user = usuario;
             pass = password;
 
-            MiConexion = new SqlConnection("Data Source=GALINDO-PC;Initial Catalog=master;User ID='" + user + "';Password='" + pass + "'");
+            MiConexion = new SqlConnection("Data Source=DESKTOP-6TMHEQB;Initial Catalog=master;User ID='" + user + "';Password='" + pass + "'");
             MiConexion.Open();
 
         }
