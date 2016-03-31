@@ -27,7 +27,7 @@ namespace AngularMVC.Controllers
             string query = "SELECT name FROM master.dbo.sysdatabases";
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                 while (res.Read())
                 {
@@ -55,7 +55,7 @@ namespace AngularMVC.Controllers
             string query = "select name from sys.types";
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                 while (res.Read())
                 {
@@ -133,7 +133,7 @@ namespace AngularMVC.Controllers
             try
             {
                 conexionBaseDatos manejoDB = new conexionBaseDatos();
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(query);
                 manejoDB.Desconectar();
 

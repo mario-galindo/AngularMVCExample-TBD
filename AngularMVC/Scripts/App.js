@@ -130,7 +130,7 @@ myApp.controller('mainController', function ($scope, $http, $location, $window, 
         };
 
 
-        $http.post('/crearTabla/crearTabla', data)
+        $http.post('/crearTabla/crearTabla', data, { user: $scope.usuario, pass: $scope.password })
         .success(function (d) {
             
             if (d == "ok") {

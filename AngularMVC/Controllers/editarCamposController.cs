@@ -51,7 +51,7 @@ namespace AngularMVC.Controllers
             
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 manejoDB.EjecutarSQL(QuerytoExecute);
                 manejoDB.Desconectar();
@@ -76,7 +76,7 @@ namespace AngularMVC.Controllers
 
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                 while (res.Read())

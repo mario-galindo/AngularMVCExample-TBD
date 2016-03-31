@@ -23,6 +23,8 @@ namespace AngularMVC.Controllers
         public bool logearse(string user,string pass) {
 
             conexionBaseDatos manejoDB = new conexionBaseDatos();
+            Session["user"] = user;
+            Session["password"] = pass;
 
             try
             {

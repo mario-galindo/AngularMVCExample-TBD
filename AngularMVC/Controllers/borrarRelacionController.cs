@@ -27,7 +27,7 @@ namespace AngularMVC.Controllers
             string query = "select fk.name from sys.foreign_keys fk where fk.parent_object_id = "+ id +"";
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                
@@ -57,7 +57,7 @@ namespace AngularMVC.Controllers
 
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 manejoDB.EjecutarSQL(borrar);
                 manejoDB.Desconectar();
@@ -80,7 +80,7 @@ namespace AngularMVC.Controllers
             string query = "select st.object_id from sys.tables st where st.name = '"+tabla+"'";
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                 while (res.Read())
