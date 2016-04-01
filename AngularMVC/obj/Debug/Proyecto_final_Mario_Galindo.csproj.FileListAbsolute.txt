@@ -30,3 +30,34 @@ C:\Users\DESARROLLO1\Documents\Clonados\AngularMVCExample\AngularMVC\bin\es\Syst
 C:\Users\DESARROLLO1\Documents\Clonados\AngularMVCExample\AngularMVC\obj\Debug\Proyecto_final_Mario_Galindo.csprojResolveAssemblyReference.cache
 C:\Users\DESARROLLO1\Documents\Clonados\AngularMVCExample\AngularMVC\obj\Debug\AngularMVC.dll
 C:\Users\DESARROLLO1\Documents\Clonados\AngularMVCExample\AngularMVC\obj\Debug\AngularMVC.pdb
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\AngularMVC.dll.config
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\AngularMVC.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\AngularMVC.pdb
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\EntityFramework.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\EntityFramework.SqlServer.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\Newtonsoft.Json.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\Newtonsoft.JsonResult.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Helpers.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Mvc.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Razor.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Webpages.Deployment.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Webpages.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Webpages.Razor.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\EntityFramework.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\EntityFramework.SqlServer.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\Newtonsoft.Json.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Razor.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Webpages.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Webpages.Deployment.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Webpages.Razor.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Helpers.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\System.Web.Mvc.xml
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\es\System.Web.Razor.resources.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\es\System.Web.Webpages.resources.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\es\System.Web.Webpages.Deployment.resources.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\es\System.Web.Webpages.Razor.resources.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\es\System.Web.Helpers.resources.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\bin\es\System.Web.Mvc.resources.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\obj\Debug\Proyecto_final_Mario_Galindo.csprojResolveAssemblyReference.cache
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\obj\Debug\AngularMVC.dll
+E:\Proyectos ASP Ejemplos\AngularMVC\AngularMVC\obj\Debug\AngularMVC.pdb
