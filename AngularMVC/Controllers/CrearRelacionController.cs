@@ -26,7 +26,7 @@ namespace AngularMVC.Controllers
             string query = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES";
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                 while (res.Read())
@@ -56,7 +56,7 @@ namespace AngularMVC.Controllers
             string query = "select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tableRight + "'";
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                 while (res.Read())
@@ -86,7 +86,7 @@ namespace AngularMVC.Controllers
             string query = "select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tableLeft + "'";
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
                 while (res.Read())
@@ -115,7 +115,7 @@ namespace AngularMVC.Controllers
 
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 manejoDB.EjecutarSQL(foreignKey);
                 manejoDB.Desconectar();

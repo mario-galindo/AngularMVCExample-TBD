@@ -17,7 +17,7 @@ namespace AngularMVC.Controllers
             return View();
         }
 
-        public string edicionCampos(string baseDatos, string tabla, string nuevo, string accion,string campo,string tipoData)
+        public string edicionCampos(string baseDatos, string tabla, string nuevo, string accion,string campo,string tipoData,string tipoSele)
         {
             conexionBaseDatos manejoDB = new conexionBaseDatos();
             string use = "use " + baseDatos;
@@ -38,13 +38,20 @@ namespace AngularMVC.Controllers
             else if (accion == "4")
             {
                 
-                
-                QuerytoExecute = "alter table "+ tabla +" add primary key("+ campo +")";
+               QuerytoExecute = "alter table "+ tabla +" add primary key("+ campo +")";
+            }
+            else if (accion == "5")
+            {
+                QuerytoExecute = "alter table "+ tabla +" alter column "+ campo +" "+ tipoSele + " not null";
+            }
+            else if (accion == "6")
+            {
+                QuerytoExecute = "alter table " + tabla + " alter column " + campo + " " + tipoSele + "  null";
             }
             
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 manejoDB.EjecutarSQL(QuerytoExecute);
                 manejoDB.Desconectar();
@@ -55,6 +62,38 @@ namespace AngularMVC.Controllers
 
                 return e.Message.ToString();
                 //throw;
+            }
+        }
+
+
+        public string getTipo(string baseDatos,string tabla,string campo,string tipoSele)
+        {
+            ArrayList tipo = new ArrayList();
+
+            conexionBaseDatos manejoDB = new conexionBaseDatos();
+            string query = "select DATA_TYPE from INFORMATION_SCHEMA.COLUMNS IC where TABLE_NAME = '"+ tabla + "' and COLUMN_NAME = '" + campo + "'";
+            string use = "use " + baseDatos;
+
+            try
+            {
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
+                manejoDB.EjecutarSQL(use);
+                SqlDataReader res = manejoDB.EjecutarSQL2(query);
+                while (res.Read())
+                {
+                    tipo.Add(res.GetValue(0));
+                }
+
+
+                //var jsonSerialiser = new JavaScriptSerializer();
+                //var json = jsonSerialiser.Serialize(dataBases);
+                var json = JsonConvert.SerializeObject(tipo);
+                return json;
+            }
+            catch (Exception)
+            {
+                return "false";
+
             }
         }
     }

@@ -28,7 +28,7 @@ namespace AngularMVC.Controllers
             string[] data = new String[2];
             try
             {
-                manejoDB.conectar("sa", "root");
+                manejoDB.conectar(Session["user"].ToString(), Session["password"].ToString());
                 manejoDB.EjecutarSQL(use);
                 SqlDataReader res = manejoDB.EjecutarSQL2(query);
               

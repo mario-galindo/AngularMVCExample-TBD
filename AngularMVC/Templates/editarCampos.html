@@ -11,6 +11,8 @@
 </style>
 
 
+
+
     <div ng-init="init()">
         <h3>Editar Campos </h3>
 
@@ -74,13 +76,15 @@
                     <input type="text" class="form-control" ng-show="AddCampo" ng-model="nuevoCampo" />
                     <input type="checkbox" ng-model="deleteCampo" />Borrar Campo <br />
 
-                    <input type="checkbox" ng-model="changeTipo" />Modificar tipo de dato <br />
+                    <input type="checkbox" ng-model="changeTipo"  />Modificar tipo de dato <br />
                     <select class="form-control" ng-show="changeTipo" ng-model="tipoData">
                         <option ng-repeat="tipo in datatypes" value="{{tipo}}">{{tipo}}</option>
                     </select>
 
-                    <input type="checkbox" ng-model="addKey" />Agregar Primary key <br />
-                    <input type="checkbox" ng-model="deleteKey" />Borrar Primary key <br />
+                    <input type="checkbox" ng-model="addKey" ng-click="traerTipo()" />Agregar Primary key(solo campo simple) <br />
+                    
+                    <input type="checkbox" ng-model="allownull" ng-click="traerTipo()" />Null <br />
+                    <input type="checkbox" ng-model="Notallownull" ng-click="traerTipo()" />Not Null <br />
                 </div>
 
 

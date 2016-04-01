@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularMVC", "AngularMVC\AngularMVC.csproj", "{EA65E36A-0CD3-4E38-B9B3-DECBFDCD10D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto_final_Mario_Galindo", "AngularMVC\Proyecto_final_Mario_Galindo.csproj", "{EA65E36A-0CD3-4E38-B9B3-DECBFDCD10D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
